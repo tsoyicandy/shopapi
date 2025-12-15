@@ -69,6 +69,12 @@ VALUES (1, 'sandrine@example.com');
 INSERT INTO orders (id, user_id)
 VALUES (1, 1);
 
+## Et avoir :
+
+un Artist (id = 1)
+
+un Concert (id = 1)
+
 
 
 ## Lancer le projet
