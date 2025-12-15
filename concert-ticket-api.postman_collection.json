@@ -1,0 +1,93 @@
+{
+  "info": {
+    "name": "Concert Ticket API (projet individuel)",
+    "_postman_id": "e3f1a2b4-5678-4abc-9def-998877665544",
+    "description": "Collection Postman pour tester l’API de vente de tickets de concert (sans sièges).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET Concerts (public)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/concerts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "concerts"]
+        }
+      }
+    },
+    {
+      "name": "POST Concert (ADMIN)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "admin"
+            },
+            {
+              "key": "password",
+              "value": "admin"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Coldplay Live\",\n  \"availableTickets\": 3\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/concerts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "concerts"]
+        }
+      }
+    },
+    {
+      "name": "POST Buy Ticket (USER)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "user"
+            },
+            {
+              "key": "password",
+              "value": "user"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tickets/buy/1?orderId=1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "tickets", "buy", "1"],
+          "query": [
+            {
+              "key": "orderId",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
